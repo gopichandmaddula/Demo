@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <style>
+            table tr td {
+                border: 1px solid black;
+            }
+            
+            table tr th {
+                border: 1px solid black;
+                background-color: aquamarine;
+            }
+        </style>
+        <script>
+            var objArray = [
+                {
+                    sno: 1,
+                    name: 'Mark',
+                    marks: 80.0
+                },
+                {
+                    sno: 2,
+                    name: 'Ron',
+                    marks: 68.0
+                },
+                {
+                    sno: 3,
+                    name: 'Messi',
+                    marks: 77.0
+                },
+                {
+                    sno: 4,
+                    name: 'Harry',
+                    marks: 90.0
+                },
+                {
+                    sno: 5,
+                    name: 'Ronaldo',
+                    marks: 54.0
+                }
+            ];
+            
+            var i = 0;
+            
+            function addInfo() {
+                if(i>=objArray.length) return;
+                
+                var tblStdInfo = document.getElementById('tblStudentInfo');
+                
+                var row = tblStdInfo.insertRow(1);
+                
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                
+                cell1.innerHTML = objArray[i].sno;
+                cell2.innerHTML = objArray[i].name;
+                cell3.innerHTML = objArray[i].marks;
+                
+                i++;
+            }
+            
+            function calcAverage() {
+                var s = 0.0;
+                for(var x=0;x<i;x++) {
+                    s += objArray[x].marks;
+                }
+                var avg = s / i;
+                
+                var avgEl = document.getElementById("avgDisplay");
+                avgEl.innerHTML = avg;                
+                
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div class="panel">
+            <div class="content">
+                <table style="border:2px solid black;" id="tblStudentInfo">
+                    <tr>
+                        <th>SNo</th>
+                        <th>Name</th>
+                        <th>Marks</th>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2" align="center">Average</td>
+                        <td><label id="avgDisplay"></label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="3" align="center"><input type="button" id="addInfo" value="Add Student Info" onclick="addInfo();" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center"><input type="button" id="calcAverage" value="Calculate Average" onclick="calcAverage();" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
