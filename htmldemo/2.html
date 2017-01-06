@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+    <head>
+        <style>
+            .panel {
+                width: 38%;
+                height: auto;
+                background-color: floralwhite;
+                border-width: 1px;
+                border-color: beige;
+                border-style: solid;
+            }  
+            
+            .panel .header {
+                background-color: aliceblue;
+                text-align: center;
+                font-size: 1.2em;
+                font-weight: bold;
+                padding: 0.6em;
+                border-width: 1px;
+                border-color: beige;
+                border-style: solid;
+            }
+            
+            .panel .content {
+                padding-top: 1em;
+                border-width: 1px;
+                border-color: beige;
+                border-style: solid;
+            }
+            
+            .panel .content label {
+                font-weight: bold;
+                font-size: 0.8em;
+                color: dimgrey;
+            }
+            
+            .panel .content table {
+                margin: 1.2em;
+                padding: 0;
+            }
+            
+            .panel .content table .input-text {
+            
+            }
+            
+            .panel .content table td {
+                padding: 0.1em 0.5em 0.1em 0.5em;
+            }
+            
+            .panel .content table input {
+                width: 100%;
+                border-color: darkgrey;
+                padding: 0.3em;
+                font-size: 1em;
+                color: dimgray;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 3px;
+            }
+            
+            .panel .content table .input-button {
+                width: 100%;
+                margin: 1em 0 1em 0;
+                padding: 0.6em;
+                font-size: 1.0em;
+                font-weight: bold;
+                background-color: deepskyblue;
+                border-width: 1px;
+                border-color: beige;
+                border-style: solid;
+                border-radius: 5px;
+                color: floralwhite; 
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="panel">
+            <div class="header">
+                Payment
+            </div>
+            
+            <div class="content">
+                <table>
+                    <tr>
+                        <td><label>Payment amount</label></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><label style="font-size:1.4em;">$500.00</label></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label>Name on card</label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" class="input-text" />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label>Card number</label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" class="input-text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Expiry date</label></td>
+                        <td><label>Security code</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="" placeholder="MM/YY"/></td>
+                        <td><input type="text" /></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label>ZIP/Postal Code</label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="text" class="input-text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="input-button" id="submit">Pay $500.00</button>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>
