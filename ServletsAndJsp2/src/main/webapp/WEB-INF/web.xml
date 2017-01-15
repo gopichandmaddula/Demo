@@ -1,0 +1,85 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>ServletsAndJsp2</display-name>
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>HomeServlet</servlet-name>
+		<servlet-class>servlets.HomeServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>servlets.LoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ViewAccountServlet</servlet-name>
+		<servlet-class>servlets.ViewAccountServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewAccountServlet</servlet-name>
+		<url-pattern>/ViewAccount</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddAccountServlet</servlet-name>
+		<servlet-class>servlets.AddAccountServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ViewMultipleAccountServlet</servlet-name>
+		<servlet-class>servlets.ViewMultipleAccountServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>servlets.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ViewMultipleAccountServlet</servlet-name>
+		<url-pattern>/ViewMultipleAccount</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddAccountServlet</servlet-name>
+		<url-pattern>/AddAccount</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>HomeServlet</servlet-name>
+		<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>SecurityFilter</filter-name>
+		<filter-class>filters.SecurityFilter</filter-class>
+		<init-param>
+			<param-name>publicUrls</param-name>
+			<param-value>/login,login.jsp</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<jsp-config>
+        <taglib>
+            <taglib-uri>coretag</taglib-uri>
+            <taglib-location>/WEB-INF/tags/c.tld</taglib-location>
+        </taglib>
+
+        <taglib>
+            <taglib-uri>formattag</taglib-uri>
+            <taglib-location>/WEB-INF/tags/fmt.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+	
+</web-app>

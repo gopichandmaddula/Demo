@@ -1,0 +1,31 @@
+{
+	"id": 1001,
+	"name": "Mark Henry",
+	"email": "markhenry@gmail.com",
+	"address" : [
+		{
+			"street": "1000 St.",
+			"city": "Houston",
+			"zip": "54614",
+			"addressType": "HOME"
+		},
+		{
+			"street": "200 St.",
+			"city": "Dallas",
+			"zip": "78451",
+			"addressType": "COMMUNICATION"
+		}
+	],
+	"marks": [
+		{
+			"subject": "Java",
+			"marks": 92.1,
+			"maxMarks": 95.37
+		},
+		{
+			"subject": "C++",
+			"marks": 85.45,
+			"maxMarks": 93.68
+		}
+	]
+}

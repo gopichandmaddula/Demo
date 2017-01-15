@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Student xmlns:tns="http://imcs.tek.xml/Student" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://imcs.tek.xml/Student Student.xsd ">
+  <tns:Id>1001</tns:Id>
+  <tns:Name>Mark Henry</tns:Name>
+  <tns:Email>markhenry@gmail.com</tns:Email>
+  <tns:Address>
+    <tns:Street>1000 St.</tns:Street>
+    <tns:City>Houston</tns:City>
+    <tns:Zip>54614</tns:Zip>
+    <tns:AddressType>HOME</tns:AddressType>
+  </tns:Address>
+  <tns:Address>
+    <tns:Street>200 St.</tns:Street>
+    <tns:City>Dallas</tns:City>
+    <tns:Zip>78451</tns:Zip>
+    <tns:AddressType>COMMUNICATION</tns:AddressType>
+  </tns:Address>
+  <tns:Marks>
+    <tns:subject>Java</tns:subject>
+    <tns:marks>92.1</tns:marks>
+    <tns:maxMarks>95.37</tns:maxMarks>
+  </tns:Marks>
+  <tns:Marks>
+    <tns:subject>C++</tns:subject>
+    <tns:marks>85.45</tns:marks>
+    <tns:maxMarks>93.68</tns:maxMarks>
+  </tns:Marks>
+</tns:Student>

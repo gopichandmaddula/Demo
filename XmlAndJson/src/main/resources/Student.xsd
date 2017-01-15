@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://imcs.tek.xml/Student" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://imcs.tek.xml/Student">
+
+    <complexType name="Student">
+    	<sequence>
+    		<element name="Id" type="string"></element>
+    		<element name="Name" type="string"></element>
+    		<element name="Email" type="string"></element>
+    		<element name="Address" type="tns:Address" maxOccurs="2"
+    			minOccurs="1">
+    		</element>
+    		<element name="Marks" type="tns:Marks" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="Address">
+    	<sequence>
+    		<element name="Street" type="string"></element>
+    		<element name="City" type="string"></element>
+    		<element name="Zip" type="string"></element>
+    		<element name="AddressType">
+    			<simpleType>
+    				<restriction base="string">
+    					<enumeration value="HOME"></enumeration>
+    					<enumeration value="COMMUNICATION"></enumeration>
+    				</restriction>
+    			</simpleType>
+    		</element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="Marks">
+    	<sequence>
+    		<element name="subject" type="string"></element>
+    		<element name="marks" type="float"></element>
+    		<element name="maxMarks" type="float"></element>
+    	</sequence>
+    </complexType>
+    
+
+
+    <element name="Student" type="tns:Student"></element>
+</schema>
