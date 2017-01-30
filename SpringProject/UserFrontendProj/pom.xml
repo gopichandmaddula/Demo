@@ -1,14 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>imcs.tek.restful</groupId>
-	<artifactId>UserBackendProj</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>UserBackendProj Maven Webapp</name>
-	<url>http://maven.apache.org</url>
-
-	<!-- Shared version number properties -->
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>imcs.spring.mvc</groupId>
+  <artifactId>UserFrontendProj</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>UserFrontendProj Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <!-- Shared version number properties -->
 	<properties>
 		<org.springframework.version>4.1.3.RELEASE</org.springframework.version>
 		<jackson.version>2.5.4</jackson.version>
@@ -238,7 +237,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>UserBackendProj</finalName>
+		<finalName>UserFrontendProj</finalName>
 		<testResources>
 			<testResource>
 				<directory>${project.basedir}/src/main/webapp/WEB-INF</directory>
@@ -288,7 +287,6 @@
 				<version>2.2</version>
 				<configuration>
 					<contextReloadable>true</contextReloadable>
-					<port>9090</port>
 				</configuration>
 			</plugin>
 		</plugins>

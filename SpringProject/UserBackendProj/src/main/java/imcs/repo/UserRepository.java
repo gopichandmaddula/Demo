@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import imcs.entity.Authority;
 import imcs.entity.User;
 
 @Repository
@@ -48,30 +49,65 @@ public class UserRepository implements IUserRepository {
 	@Override
 	public boolean save(User user) {
 		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+
+		user.getCredentials().setUser(user);
+
+		for (Authority authority : user.getCredentials().getAuthorities()) {
+			authority.setCredential(user.getCredentials());
+		}
+
 		Long userId = (Long) session.save(user);
+		session.getTransaction().commit();
 		session.close();
 		if (userId != null && userId > 0)
 			return true;
 		else
 			return false;
 	}
+	
+	private void copyUser(User src, User dst) {
+		dst.setName(src.getName());
+		dst.setEmail(src.getEmail());
+		dst.setDob(src.getDob());
+		dst.setPhone(src.getPhone());
+		dst.getCredentials().setUsername(src.getCredentials().getUsername());
+		dst.getCredentials().setPassword(src.getCredentials().getPassword());
+		
+		dst.getCredentials().setAuthorities(src.getCredentials().getAuthorities());
+		for(Authority authority : dst.getCredentials().getAuthorities()) {
+			authority.setCredential(dst.getCredentials());
+		}
+	}
 
 	@Override
 	public User update(User user) {
+		User getUser = getUserById(user.getUserId());
+		
+		copyUser(user, getUser);
+				
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.saveOrUpdate(user);
+		
+		Query query = session.createQuery("DELETE FROM Authority a WHERE a.credential.credentials_id = :credentialsId");
+		query.setParameter("credentialsId", getUser.getCredentials().getCredentials_id());
+		
+		query.executeUpdate();
+		
+		User updatedUser = (User) session.merge(getUser);
+		
 		session.getTransaction().commit();
 		session.close();
-		return user;
+		
+		return updatedUser;
 	}
 
 	@Override
 	public boolean delete(Long userId) {
 		User userToDelete = getUserById(userId);
-		if(userToDelete==null)
+		if (userToDelete == null)
 			return false;
-		
+
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.delete(userToDelete);

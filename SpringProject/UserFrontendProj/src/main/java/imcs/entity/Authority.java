@@ -26,6 +26,10 @@ public class Authority {
 	
 	public Authority() {}
 	
+	public Authority(String authority) {
+		this.authority = authority;
+	}
+	
 	public Authority(Long id, String authority, Credentials credential) {
 		super();
 		this.authority_id = id;
